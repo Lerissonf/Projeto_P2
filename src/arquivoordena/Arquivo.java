@@ -2,6 +2,7 @@ package arquivoordena;
 
 //import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import excecoes.EntradaVazioException;
 import java.io.File;
 //import java.io.FileNotFoundException;
 //import java.io.FileReader;
@@ -44,7 +45,7 @@ public class Arquivo {
         return array;
     }*/
 
-    public void gravarArquivo(String endereco, int[] array) throws IOException {
+    public void gravarArquivo(String endereco, int[] array) throws EntradaVazioException, IOException {
 
         File arquivo = new File(endereco);
 

@@ -1,11 +1,10 @@
 package arquivoordena;
 import java.util.Scanner;
+import excecoes.EntradaVazioException;
 import java.io.IOException;
-
-import java.util.Arrays;
 public class ProgramaPrincipal {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, EntradaVazioException {
 
         Arquivo arquivo = new Arquivo();
         Ordenacao ordenar = new Ordenacao();
@@ -22,7 +21,7 @@ public class ProgramaPrincipal {
         {
         	
         	System.out.print( "informe os valores a serem ordenados um por vez ou 909909 para parar de adicionar: " );
-            String caminho_entrada_saida = ler.nextLine();
+            String caminho_entrada_saida = ler.nextLine(); 
             
             int conv = Integer.parseInt(caminho_entrada_saida);
             
