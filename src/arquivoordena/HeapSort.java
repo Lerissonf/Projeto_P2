@@ -1,8 +1,11 @@
 package arquivoordena;
+import arquivoordena.InterOrdenacao;
+import excecoes.ArrayEmptyException;
 
-public class HeapSort {
 
-    public static int[] sort(int[] v) {
+public class HeapSort implements InterOrdenacao  {
+
+	public static int[] sort(int[] v) throws ArrayEmptyException {
         buildMaxHeap(v);
         int n = v.length;
 
@@ -14,14 +17,14 @@ public class HeapSort {
         return v;
     }
 
-    private static void buildMaxHeap(int[] v) {
+    private static void buildMaxHeap(int[] v)throws ArrayEmptyException {
         for (int i = v.length / 2 - 1; i >= 0; i--) {
             maxHeapify(v, i, v.length);
         }
 
     }
 
-    private static void maxHeapify(int[] vetor, int pos, int tamanhoDoVetor) {
+    private static void maxHeapify(int[] vetor, int pos, int tamanhoDoVetor) throws ArrayEmptyException {
 
         int max = 2 * pos + 1, right = max + 1;
         if (max < tamanhoDoVetor) {
@@ -42,4 +45,6 @@ public class HeapSort {
         v[j] = v[aposJ];
         v[aposJ] = aux;
     }
+
+	
 }

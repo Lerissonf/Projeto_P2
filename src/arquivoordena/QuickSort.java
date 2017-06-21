@@ -3,7 +3,7 @@ package arquivoordena;
 public class QuickSort {
  
 
-    public static int[] quicksort(int vet[], int ini, int fim) {
+    public static int[] sort(int vet[], int ini, int fim) {
 
         int meio;
 
@@ -11,9 +11,9 @@ public class QuickSort {
 
             meio = partition(vet, ini, fim);
 
-            quicksort(vet, ini, meio);
+           sort(vet, ini, meio);
 
-            quicksort(vet, meio + 1, fim);
+           sort(vet, meio + 1, fim);
 
         }
         

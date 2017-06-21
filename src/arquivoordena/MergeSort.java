@@ -1,6 +1,6 @@
 package arquivoordena;
 
-public class MergeSort {
+public class MergeSort implements InterOrdenacao {
 
     public static int[] sort(int[] array) {
        
