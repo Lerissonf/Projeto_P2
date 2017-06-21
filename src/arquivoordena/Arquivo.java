@@ -58,6 +58,8 @@ public class Arquivo {
             if (!arquivo.exists()) {
             	arquivo.createNewFile();
             	throw new MyFileNotFoundException( "O arquivo não pode deixar de existir");
+            	
+            	
             }
             
             FileWriter fw = new FileWriter(endereco);

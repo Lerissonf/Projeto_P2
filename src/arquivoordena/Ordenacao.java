@@ -6,15 +6,7 @@ public class Ordenacao {
 
     public int[] insertionSort(int[] vetor) {
         long tempoinicial = System.currentTimeMillis();
-        for (int i = 0; i < vetor.length; i++) {
-            int atual = vetor[i];
-            int j = i - 1;
-            while (j >= 0 && vetor[j] >= atual) {
-                vetor[j + 1] = vetor[j];
-                j--;
-            }
-            vetor[j + 1] = atual;;
-        }
+        vetor = InsertionSort.sort(vetor);
         long tempofinal = System.currentTimeMillis();
         long tempototal = tempofinal - tempoinicial;
         System.out.println("Tempo de Processamento de InsertionSort: " + tempototal + "ms");
@@ -23,18 +15,7 @@ public class Ordenacao {
 
     public int[] selectionSort(int[] vetor) {
         long tempoinicial = System.currentTimeMillis();
-        for (int i = 0; i < vetor.length; i++) {
-            int indiceMinimo = i;
-            for (int j = i + 1; j < vetor.length; j++) {
-                if (vetor[j] < vetor[indiceMinimo]) {
-                    indiceMinimo = j;
-                }
-            }
-
-            int tmp = vetor[indiceMinimo];
-            vetor[indiceMinimo] = vetor[i];
-            vetor[i] = tmp;
-        }
+        vetor = SelectionSort.sort(vetor);
         long tempofinal = System.currentTimeMillis();
         long tempototal = tempofinal - tempoinicial;
         System.out.println("Tempo de Processamento de SelectionSort: " + tempototal + "ms");
@@ -43,15 +24,7 @@ public class Ordenacao {
 
     public int[] bubbleSort(int vetor[]) {
         long tempoinicial = System.currentTimeMillis();
-        for (int i = vetor.length; i >= 1; i--) {
-            for (int j = 1; j < i; j++) {
-                if (vetor[j - 1] > vetor[j]) {
-                    int aux = vetor[j];
-                    vetor[j] = vetor[j - 1];
-                    vetor[j - 1] = aux;
-                }
-            }
-        }
+        vetor = BubbleSort.sort(vetor);
         long tempofinal = System.currentTimeMillis();
         long tempototal = tempofinal - tempoinicial;
         System.out.println("Tempo de Processamento de BubbleSort: " + tempototal + "ms");
@@ -69,7 +42,7 @@ public class Ordenacao {
     
     public int[] quickSort(int[] array) {
         long tempoinicial = System.currentTimeMillis();
-        array = QuickSort.quicksort(array, 0, (array.length - 1));
+        array = QuickSort.sort(array, 0, (array.length - 1));
         long tempofinal = System.currentTimeMillis();
         long tempototal = tempofinal - tempoinicial;
         System.out.println("Tempo de Processamento de QuickSort: " + tempototal + "ms");

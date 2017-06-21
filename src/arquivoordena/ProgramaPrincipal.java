@@ -50,9 +50,9 @@ public class ProgramaPrincipal {
         }
        
         
-        //arrayOrdenado = ordenar.insertionSort(arrayDesordenado);
-        //arrayOrdenado = ordenar.selectionSort(arrayDesordenado);
-        //arrayOrdenado = ordenar.bubbleSort(arrayDesordenado);
+        arrayOrdenado = ordenar.insertionSort(arrayDesordenado);
+        arrayOrdenado = ordenar.selectionSort(arrayDesordenado);
+        arrayOrdenado = ordenar.bubbleSort(arrayDesordenado);
         arrayOrdenado = ordenar.mergeSort(arrayDesordenado);
         arrayOrdenado = ordenar.quickSort(arrayDesordenado);
         try {
