@@ -1,5 +1,7 @@
 package arquivoordena;
 
+import excecoes.ArrayEmptyException;
+
 public class Ordenacao {
 
     public int[] insertionSort(int[] vetor) {
@@ -74,7 +76,7 @@ public class Ordenacao {
         return array;
     }
     
-    public int[] heapSort(int[] array) {
+    public int[] heapSort(int[] array) throws ArrayEmptyException {
         long tempoinicial = System.currentTimeMillis();
         array = HeapSort.sort(array);
         long tempofinal = System.currentTimeMillis();

@@ -3,6 +3,9 @@ package arquivoordena;
 //import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import excecoes.EntradaVazioException;
+import excecoes.IllegalArgumentException;
+import excecoes.MyFileNotFoundException;
+
 import java.io.File;
 //import java.io.FileNotFoundException;
 //import java.io.FileReader;
@@ -45,18 +48,19 @@ public class Arquivo {
         return array;
     }*/
 
-    public void gravarArquivo(String endereco, int[] array) throws EntradaVazioException, IOException {
+    public void gravarArquivo(String endereco, int[] array) throws IllegalArgumentException, EntradaVazioException, IOException, MyFileNotFoundException {
 
-        File arquivo = new File(endereco);
+        File arquivo = new File(endereco); 
+        
 
         try {
 
             if (!arquivo.exists()) {
-                arquivo.createNewFile();
+            	arquivo.createNewFile();
+            	throw new MyFileNotFoundException( "O arquivo não pode deixar de existir");
             }
-
+            
             FileWriter fw = new FileWriter(endereco);
-
             BufferedWriter bw = new BufferedWriter(fw);
 
             for (int counter = 0; counter < (array.length); counter++) {

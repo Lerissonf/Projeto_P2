@@ -1,10 +1,15 @@
 package arquivoordena;
 import java.util.Scanner;
+
+import excecoes.ArrayEmptyException;
 import excecoes.EntradaVazioException;
+import excecoes.IllegalArgumentException;
+import excecoes.MyFileNotFoundException;
+
 import java.io.IOException;
 public class ProgramaPrincipal {
 
-    public static void main(String[] args) throws IOException, EntradaVazioException {
+    public static void main(String[] args) throws IOException, EntradaVazioException, IllegalArgumentException, MyFileNotFoundException {
 
         Arquivo arquivo = new Arquivo();
         Ordenacao ordenar = new Ordenacao();
@@ -13,7 +18,8 @@ public class ProgramaPrincipal {
         //Scanner ler = new Scanner(System.in);
         
        
-        Scanner ler = new Scanner(System.in);
+        @SuppressWarnings("resource")
+		Scanner ler = new Scanner(System.in);
 		System.out.printf("Informe o caminho de saida do arquivo texto:\n");
 		String caminho = ler.nextLine();
         boolean boleano = true;
@@ -49,7 +55,13 @@ public class ProgramaPrincipal {
         //arrayOrdenado = ordenar.bubbleSort(arrayDesordenado);
         arrayOrdenado = ordenar.mergeSort(arrayDesordenado);
         arrayOrdenado = ordenar.quickSort(arrayDesordenado);
-        arrayOrdenado = ordenar.heapSort(arrayDesordenado);
+        try {
+			arrayOrdenado = ordenar.heapSort(arrayDesordenado);
+		} catch (ArrayEmptyException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.print( "o array não pode estar vazio!: " );
+		}
         
 
        
