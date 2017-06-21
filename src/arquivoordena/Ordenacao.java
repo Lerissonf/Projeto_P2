@@ -85,7 +85,7 @@ public class Ordenacao {
     
     public void imprimirVetor(int[] array) {
         for (int counter = 0; counter < (array.length - 1); counter++) {
-            System.out.println(array[counter]);
+            //System.out.println(array[counter]);
         }
     }
 }
