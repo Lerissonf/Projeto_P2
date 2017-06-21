@@ -26,7 +26,7 @@ public class ProgramaPrincipal {
         while(boleano) 
         {
         	
-        	System.out.print( "informe os valores a serem ordenados um por vez ou 909909 para parar de adicionar 1: " );
+        	System.out.print( "informe os valores a serem ordenados um por vez ou 909909 para parar de adicionar: " );
             String caminho_entrada_saida = ler.nextLine(); 
             
             
@@ -38,7 +38,7 @@ public class ProgramaPrincipal {
             }
             catch(ArrayEmptyException ex){
                 System.out.println("O array não pode estar vazio" + ex);
-                System.out.print( "informe os valores a serem ordenados um por vez ou 909909 para parar de adicionar 2: " );
+                System.out.print( "informe os valores a serem ordenados um por vez ou 909909 para parar de adicionar: " );
                 caminho_entrada_saida = ler.nextLine();
             }
             finally{
@@ -56,15 +56,6 @@ public class ProgramaPrincipal {
                 }       
             }
                 
-                
-            /*if (conv == 909909)
-            {
-                boleano = false;
-            }
-            else
-            {
-                InterfaceEntradaTamanho.entrada.add(conv);
-            }    */        
         }
         
        
@@ -84,10 +75,9 @@ public class ProgramaPrincipal {
         try {
 			arrayOrdenado = ordenar.heapSort(arrayDesordenado);
 		} catch (ArrayEmptyException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
-			System.out.print( "o array nao pode estar vazio!: " );
-		}
+			
         
 
        
