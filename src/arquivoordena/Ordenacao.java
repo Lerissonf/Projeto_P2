@@ -51,6 +51,9 @@ public class Ordenacao {
     
     public int[] heapSort(int[] array) throws ArrayEmptyException {
         long tempoinicial = System.currentTimeMillis();
+        if (array == null){
+            throw new ArrayEmptyException( "O array não pode estar vazio");
+        }
         array = HeapSort.sort(array);
         long tempofinal = System.currentTimeMillis();
         long tempototal = tempofinal - tempoinicial;

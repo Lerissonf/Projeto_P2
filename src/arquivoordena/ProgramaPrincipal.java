@@ -9,7 +9,7 @@ import excecoes.MyFileNotFoundException;
 import java.io.IOException;
 public class ProgramaPrincipal {
 
-    public static void main(String[] args) throws IOException, EntradaVazioException, IllegalArgumentException, MyFileNotFoundException {
+    public static void main(String[] args) throws IOException, EntradaVazioException, IllegalArgumentException, MyFileNotFoundException, ArrayEmptyException {
 
         Arquivo arquivo = new Arquivo();
         Ordenacao ordenar = new Ordenacao();
@@ -26,19 +26,45 @@ public class ProgramaPrincipal {
         while(boleano) 
         {
         	
-        	System.out.print( "informe os valores a serem ordenados um por vez ou 909909 para parar de adicionar: " );
+        	System.out.print( "informe os valores a serem ordenados um por vez ou 909909 para parar de adicionar 1: " );
             String caminho_entrada_saida = ler.nextLine(); 
             
-            int conv = Integer.parseInt(caminho_entrada_saida);
             
-            if (conv == 909909)
+            int conv = Integer.parseInt(caminho_entrada_saida);
+            try{
+                if (conv == 909909 && InterfaceEntradaTamanho.entrada.size() == 0){
+                    throw new ArrayEmptyException("");
+                }
+            }
+            catch(ArrayEmptyException ex){
+                System.out.println("O array n√£o pode estar vazio" + ex);
+                System.out.print( "informe os valores a serem ordenados um por vez ou 909909 para parar de adicionar 2: " );
+                caminho_entrada_saida = ler.nextLine();
+            }
+            finally{
+                
+            
+                conv = Integer.parseInt(caminho_entrada_saida);
+                
+                if (conv == 909909)
+                {
+                    boleano = false;
+                }
+                else
+                {
+                    InterfaceEntradaTamanho.entrada.add(conv);
+                }       
+            }
+                
+                
+            /*if (conv == 909909)
             {
-            	boleano = false;
+                boleano = false;
             }
             else
             {
-            	InterfaceEntradaTamanho.entrada.add(conv);
-            }
+                InterfaceEntradaTamanho.entrada.add(conv);
+            }    */        
         }
         
        
@@ -60,7 +86,7 @@ public class ProgramaPrincipal {
 		} catch (ArrayEmptyException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.print( "o array n„o pode estar vazio!: " );
+			System.out.print( "o array nao pode estar vazio!: " );
 		}
         
 
