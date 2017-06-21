@@ -84,4 +84,5 @@ public class ProgramaPrincipal {
         arquivo.gravarArquivo(caminho, arrayOrdenado);
         
     }
+  }
 }
