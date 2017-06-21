@@ -56,7 +56,7 @@ public class Arquivo {
         try {
 
             if (!arquivo.exists()) {
-            	arquivo.createNewFile();
+            	//arquivo.createNewFile();
             	throw new MyFileNotFoundException( "O arquivo não pode deixar de existir");
             	
             	
